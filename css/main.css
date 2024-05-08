@@ -252,8 +252,14 @@ Navbar
     border-radius: var(--borderRadius);
 }
 
+.nav-btn {
+    padding: 0.75rem 1rem;
+}
+
 .nav-tabs {
-    display: flex;
+    /* display: flex; */
+    /* don't display the tabs until the nav button is clicked */
+    display: none;
     /* set transition for hover */ 
     transition: var(--transition); 
     align-items: center;
