@@ -1,0 +1,908 @@
+/* make all elements border-box box model */
+/* this makes sizing easier and more predictable when trying to apply specific layouts */
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+/* import fonts from google fonts for headings and body */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Nunito&display=swap');
+
+html {
+    /* set font size too 100%, noramlly 16px, which will be used for rem calculations */
+    font-size: 100%;
+}
+
+/* set root variables for colors, font families and some other variables to ensure reusability and consistency in styling */
+:root {
+    /* main theme colors */
+    --primary-100: #c0e5bf;
+    --primary-200: #94ce8f;
+    --primary-300: #6ab360;
+    --primary-400: #439435;
+    --primary-500: #1e720f;
+    --primary-600: #136405;
+    --primary-700: #0b5300;
+    --primary-800: #053e00;
+    --primary-900: #012600;
+
+    /* grey scale */
+    --grey-50: #f8fafc;
+    --grey-100: #f1f5f9;
+    --grey-200: #e2e8f0;
+    --grey-300: #cbd5e1;
+    --grey-400: #94a3b8;
+    --grey-500: #64748b;
+    --grey-600: #475569;
+    --grey-700: #334155;
+    --grey-800: #1e293b;
+    --grey-900: #0f172a;
+    /* other colors */
+    --black: #121212;
+    --white: #f7f7f7;
+
+    /* set fonts for headings and body */
+    --headingFont: 'Roboto', sans-serif;
+    --bodyFont: 'Nunito', sans-serif;
+    
+    /* rest of the variabless */
+    --backgroundColor: var(--grey-50);
+    --textColor: var(--black);
+    --borderRadius: 0.5rem;
+    --letterSpacing: 1px;
+    --transition: 0.4s ease-in-out all;
+    --max-width: 1120px;
+    --fixed-width: 600px;
+
+    /* box shadow - from w3schools */
+    --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* set font elements for the body sections */
+body {
+    background: var(--backgroundColor);
+    font-family: var(--bodyFont);
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--textColor);
+}
+
+/* set small margin below each paragraph */
+p {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    letter-spacing: var(--letterSpacing);
+}
+
+/* set font size/spacing for heading elements */
+h1, h2, h3, h4, h5 {
+    margin: 0;
+    margin-bottom: 1.38rem;
+    font-family: var(--headingFont);
+    font-weight: 400;
+    line-height: 1.3;
+    /* capitalize all headings */
+    text-transform: capitalize;
+    letter-spacing: var(--letterSpacing);
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 3.052rem;
+}
+h2 {
+    font-size: 2.441rem;
+}
+h3 {
+    font-size: 1.953rem;
+}
+h4 {
+    font-size: 1.563rem;
+}
+h5 {
+    font-size: 1.25rem;
+}
+
+/* remove text decoration (underline) from links */
+a {
+    text-decoration: none;
+}
+
+/* remove bullet points and padding from lists */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* set images to cover entire container's entire width while maintaining its aspect ratio */
+.img {
+    width: 100%;
+    /* display as a block element */
+    display: block; 
+    object-fit: cover;
+}
+
+/* set styling for buttons */
+.btn {
+    /* set cursor to be a pointer to indicate it is clickable */
+    cursor: pointer; 
+    /* text color to white */
+    color: var(--white); 
+    background: var(--primary-500);
+    /* make border transparent for cleaner look */
+    border: transparent; 
+    /* use standard border radius and letter spacing */
+    border-radius: var(--borderRadius); 
+    letter-spacing: var(--letterSpacing);
+    /* add padding */
+    padding: 0.375rem 0.75rem; 
+    /* use predefined shadow and transition */
+    box-shadow: var(--shadow); 
+    transition: var(--transtion);
+    /* capitalize text */
+    text-transform: capitalize; 
+    /* inline block so it can sit next to inline elements if needed */
+    display: inline-block; 
+}
+
+/* change colour and maintain shadow on hover */
+.btn:hover {
+    background: var(--primary-700);
+    box-shadow: var(--shadow);
+}
+
+/* take up all of container width */
+.btn-block {
+    width: 100%;
+}
+
+/* set form styling */
+.form {
+    /* form takes up 90% of its containers width up to a max width */
+    width: 90vw;
+    max-width: var(--fixed-width);
+    /* generic styling */
+    background: var(--white);
+    border-radius: var(--borderRadius);
+    box-shadow: var(--shadow);
+    /* padding and margin for breathability */
+    padding: 2rem 2.5rem;
+    margin: 3rem auto;
+}
+
+/* style form labels */
+.form-label {
+    /* new line for each */
+    display: block; 
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+    letter-spacing: var(--letterSpacing);
+}
+
+/* inputs and text areas should take up full form width with generic styling */
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--borderRadius);
+    background: var(--backgroundColor);
+    border: 1px solid var(--grey-200);
+}
+
+/* add margin below each field */
+.form-row {
+    margin-bottom: 1rem;
+}
+
+.form-textarea {
+    height: 6rem;
+}
+
+/*
+=============== 
+Navbar
+===============
+*/
+
+/* navbar plus space to the side of contents */
+.navbar {
+    /* flexbox for navbar */
+    display: flex; 
+    /* align navbar items vertically */
+    align-items: center; 
+    /* align horizontally */
+    justify-content: center; 
+    /* set navbar height */
+    height: 6rem; 
+    /* small margin above navbar */
+    margin-top: 0.5rem; 
+}
+
+/* all components of navbar */
+.nav-content {
+    /* dont fill width entirely */
+    width: 90vw; 
+    display: flex;
+    /* center content vertically */
+    align-items: center;  
+}
+
+/* logo in navbar */
+.nav-header {
+    /* THIS SECTION WILL BE NEEDED IN ASSIGN 2 */
+    /* set to image height */
+    /* height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0; */
+    margin-right: 2rem;
+}
+
+.nav-logo {
+    display: flex;
+    /* align logo with bottom of flex container */
+    align-items: flex-end;  
+}
+
+.nav-header img {
+    /* set logo width */
+    width: 200px;  
+    border-radius: var(--borderRadius);
+}
+
+.nav-tabs {
+    display: flex;
+    /* set transition for hover */ 
+    transition: var(--transition); 
+    align-items: center;
+    width: 100%;
+    /* space between logo and tabs */ 
+    margin-left: 2rem; 
+}
+
+.nav-tab {
+    /* block item for full size clickable area */ 
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+    /* replace purple link text color */
+    color: var(--grey-900); 
+    letter-spacing: var(--letterSpacing);
+    padding: 1rem 0;
+    /* space between each tab */
+    margin-right: 1.5rem; 
+}
+
+/* change color on hover */
+.nav-tab:hover {
+    color: var(--primary-400);
+}
+
+.contact-tab {
+    /* move contact tab all the way to the right */
+    margin-right: 0;
+    margin-left: auto;
+}
+
+/*
+=============== 
+Main Page
+===============
+*/
+
+.page {
+    /* same width as navbar */
+    width: 90vw;
+    /* small margin above footer and auto margin on sides */
+    margin: 0px auto 10px;
+    padding-top: 2rem;
+    /* full height - (header height + footer height) to keep footer at bottom of page */
+    min-height: calc(100vh - (6rem + 4rem));
+}
+
+.recipe-page {
+    padding-top: 0.5rem;
+}
+
+/*
+=============== 
+Footer
+===============
+*/
+
+.page-footer {
+    /* fixed footer height */
+    height: 4rem;
+    padding: 3px;
+    /* background and text colours */
+    background-color: var(--black);
+    color: var(--white);
+    display: flex;
+    /* center items */
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-address {
+    /* center address and allow use of full width */
+    text-align: center; 
+    width: 100%;
+}
+
+.page-footer a {
+    /* footer link color */
+    color: var(--primary-300)
+}
+
+/*
+=============== 
+Hero Image: Home Page / Single Recipe Page / Tips Page
+===============
+*/
+
+.hero {
+    /* set hero image to take up 40% of viewport height */
+    height: 40vh;
+    /* set hero image as container background */
+    background: url("../images/hero-3.jpeg");
+    /* center image */
+    background-position: center;
+    /* fill container with image */
+    background-size: cover;
+    /* do not allow image to wrap or repeat */
+    background-repeat: no-repeat;
+}
+
+.recipe-hero, .tips-hero {
+    /* make recipe hero image slightly shorter */
+    height: 35vh;
+}
+
+.hero, .recipe-hero, .tips-hero {
+    /* move hero image up slightly */
+    margin-top: -1rem;
+    /* set bottom margin for heros */
+    margin-bottom: 1rem;
+    border-radius: var(--borderRadius);
+    /* relative position to keep page flow in tact */
+    position: relative;
+}
+
+.hero-img-container, .recipe-hero-img-container, .tips-hero-img-container {
+    position: relative;
+    /* image takes full size of parent container */
+    width: 100%;
+    height: 100%;
+    /* position in top left of parent container */
+    top: 0;
+    left: 0;
+    /* darken image by 60% to allow text to be clear */
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: var(--borderRadius);
+    display: flex;
+    /* center text vertically */
+    align-items: center;
+    /* center text horizontally */
+    justify-content: center;
+    /* hide any image overflow */
+    overflow: hidden;
+}
+
+.recipe-hero-image, .tips-hero-image {
+    width: 100%;
+    height: 100%;
+    /* Cover the container */
+    object-fit: cover; 
+    /* Center the image */
+    object-position: center;
+    border-radius: var(--borderRadius);
+    /* set brightness to 50% to darken image */
+    filter: brightness(50%); 
+}
+
+.hero-text {
+    /* center the text with itself */
+    text-align: center;
+    color: var(--grey-50); 
+}
+
+.recipe-hero-text, .tips-hero-text {
+    /* position text in center of image */
+    /* absolute position so the text doesn't affect rest of the page */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    /* stack children vertically */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* center the subtext with the heading */
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-text h1, .recipe-hero-text h1, .tips-hero-text h1 {
+    /* override default h1 styling for this text */
+    font-size: 4rem; 
+    margin-bottom: 0;
+}
+
+/* make subheadings less prominent */
+.hero-text h4, .tips-hero-text h4 {
+    opacity: 0.8;
+}
+
+/*
+=============== 
+Home Page
+===============
+*/
+
+/* adjust heading styling */
+.introduction h5 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* create grip layout for home content */
+.home-content-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+    /* add larger margin above and below */
+    margin: 3rem auto;
+}
+
+.preview-container {
+    /* flexbox for ease of centering/placing content */
+    display: flex;
+    flex-direction: column;
+    /* center contentss */
+    justify-content: center;
+    text-align: center;
+    /* add light background */
+    background: var(--grey-100);
+    border-radius: var(--borderRadius);
+}
+
+.preview-container h4 {
+    /* change heading colour and bottom margin */
+    color: var(--primary-400);
+    margin: 0.5rem auto;
+}
+
+/* relative position for image wrapper so the contents affect the flow */
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.preview-img {
+    /* slightly narrow the images for aesthetics */
+    width: 80%;
+    height: auto;
+    border-radius: var(--borderRadius);
+    box-shadow: var(--shadow);
+    margin-bottom: 0.5rem;
+}
+
+/* set up link at bottom of image */
+.image-link {
+    /* postioning to fit image and scale appropriatly */
+    position: absolute;
+    bottom: 1rem;
+    left: 10%;
+    right: 10%;
+    /* align text to the right */
+    text-align: right;
+    /* set text color */
+    color: var(--white);
+    /* semi-transparent black background for link */
+    background-color: rgba(0, 0, 0, 0.4); 
+    /* border radius only on bottom to match image */
+    border-radius: 0 0 var(--borderRadius) var(--borderRadius);
+    padding: 10px;
+    /* opacity at 0 usually (not visible) */
+    opacity: 0;
+}
+
+/* when the image is hovered on, show the link */
+.image-wrapper:hover .image-link {
+    opacity: 1;
+}
+
+/* show pointer to indicate link is clickable */
+.image-link:hover {
+    cursor: pointer;
+}
+
+/*
+=============== 
+Recipe Page
+===============
+*/
+
+/* set up grid layout for recipe page */
+.recipe-grid {
+    display: grid;
+    /* filter takes up 3 fractions and the recipes take up the rest, each recipe will be lightly wider 
+    than the filter section */
+    grid-template-columns: 3fr 12fr;
+    /* gap between each column */
+    gap: 1.25rem;
+    padding: 0.5rem;
+}
+
+/* make recipe filter column run the whole length of the page */
+.recipe-filter {
+    grid-row: 1/-1;
+    /* place border on the right side */
+    border-right: 1px solid var(--black);
+    padding-right: 1rem;
+}
+
+/* set up grid for the recipes with 3 columns */
+.recipes-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.25rem;
+    padding: 0.5rem;
+}
+
+.recipes-container a {
+    /* inherit colour instead of using purple link text */
+    color: inherit;
+}
+
+/* set style for each recipe tile */
+.recipe {
+    border-radius: var(--borderRadius);
+    display: flex;
+    /* set flex direction so recipe images/text are stacked vertically */
+    flex-direction: column;
+    /* align recipes horizontally */
+    align-items: center;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    /* ensure recipe boxes are the same size */
+    height: 100%;
+    padding: 0.25rem;
+}
+
+/* reduce opacity on hover */
+.recipe:hover .recipe-image {
+    opacity: 0.7;
+}
+
+/* overwrite general text styling for hthese tiles */
+.recipe h4, p{
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+/* change heading color on hover */
+.recipe:hover h4 {
+    color: var(--primary-500);
+}
+
+.recipe-image {
+    /* fill the container with image */
+    width: 100%;
+    height: auto;
+    /* set border radius for only the top corners of the image */
+    border-radius: var(--borderRadius)  var(--borderRadius) 0px 0px;
+    /* gap below image */
+    margin-bottom: 0.5rem;
+}
+
+/* position dropdown menu below the button */
+.dropdown {
+    position: relative;
+    transition: var(--transition); 
+}
+
+/* set styling for the dropdown button to not look like a button */
+.dropbtn {
+    background: none;
+    border: transparent;
+    border-radius: var(--borderRadius);
+    letter-spacing: var(--letterSpacing);
+    padding: 0.375rem 0.75rem;
+    transition: var(--transition);
+    display: inline-block;
+    font-size: 18px;
+}
+
+/* style the contents of the dropdown menu contents */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    /* bring dropdown content forwards so it sits above other items */
+    z-index: 1;
+    width: 100%;
+    /* add background colour and shadow */
+    background: var(--white);
+    box-shadow: var(--shadow);
+    border-radius: var(--borderRadius);
+}
+
+/* change button color on hover and while on dropdown items */
+.dropdown:hover .dropbtn {
+    color: var(--primary-500);
+    background-color: var(--grey-100);
+}
+
+/* show dropdown content on hover on button */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* set style for the dropdown links */
+.dropdown-content a {
+    color: inherit;
+    display: block;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+/* change color and add background on hover */
+.dropdown-content a:hover {
+    color: var(--primary-500);
+    background-color: var(--grey-100);
+}
+
+/*
+=============== 
+Single Recipe Page
+===============
+*/
+
+.back-btn {
+    margin-bottom: 1.5rem;
+    background: none;
+    border: transparent;
+    color: var(--grey-900);
+    letter-spacing: var(--letterSpacing);
+    padding: 0.375rem 0.75rem;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.back-btn:hover {
+    color: var(--primary-400);
+}
+
+.recipe-description-container {
+    /* set light green background for container */
+    background: var(--primary-200);
+    /* add small padding and normal border radius/shadow */
+    padding: 0.25rem;
+    border-radius: var(--borderRadius);
+    box-shadow: var(--shadow); 
+    /* add small margin above and slightly larger below, auto for the sides */
+    margin: 1rem auto 2rem;
+    /* only allow 80% width to keep more central */
+    width: 80%;
+}
+
+.recipe-description {
+    /* add grey background inside the green one */
+    background: var(--grey-100);
+    border-radius: var(--borderRadius);
+    padding: 1rem;
+}
+
+/* overwrite heading settings */
+.recipe-content h4 {
+    margin-bottom: 0.5rem;
+    text-align: center;
+    /* set heading color */
+    color: var(--primary-500);
+}
+
+.recipe-content p, ul {
+    /* increase font size */
+    font-size: 1.25rem;
+    padding: 0 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.recipe-content p {
+    /* justify paragraph text */
+    text-align: justify;
+}
+
+/* list item spacing */
+.recipe-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.drink-details {
+    /* flexbox to align child elements in a row */
+    display: flex; 
+    /* split columns evenly */
+    justify-content: space-between;
+    /* center the detail block and giving margin above/below */
+    margin: 1rem auto;
+    padding: 0.5rem;
+}
+
+/* set small black text for the detail heading */
+.drink-details p {
+    color: var(--textColor);
+    font-size: 1rem;
+}
+
+/* style for the detail icon and text */
+.detail-item {
+    text-align: center;
+    font-size: 2rem;
+    /* give the icons color */
+    color: var(--primary-500);
+    /* each item takes up the same space */
+    flex: 1;
+    /* flex along y axis */
+    display: flex;
+    flex-direction: column;
+    /* stack items above each other */
+    align-items: center;
+}
+
+/* grid container for ingredients and prep */
+.recipe-details-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 0.25rem;
+    margin-bottom: 2rem;
+    /* light green background for container as above */
+    background: var(--primary-200);
+    border-radius: var(--borderRadius);
+    box-shadow: var(--shadow);
+}
+
+/* styling for each div in this container */
+.recipe-details-container > div {
+    /* grey background as above */
+    background: var(--grey-100);
+    padding: 0.75rem;
+    border-radius: var(--borderRadius);
+    box-shadow: var(--shadow);
+}
+
+/* split ingredients div into two columns */
+.ingredients-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* align the left column to the right so it sits centrally */
+.measurements {
+    text-align: right;
+}
+
+/*
+=============== 
+COTW Page
+===============
+*/
+
+/* banner to show that this is the COTW */
+.cotw-banner {
+    /* bright background color */
+    background-color: var(--primary-500);
+    color: var(--white);
+    /* center the text inside the banner */
+    text-align: center; 
+    padding: 0.5rem;
+    /* slightly larger font size */
+    font-size: 1.5rem;
+    box-shadow: var(--shadow);
+    border-radius: var(--borderRadius);
+    /* small margin before the hero section */
+    margin-bottom: 2rem;
+}
+
+.cotw-banner p {
+    /* remove the default paragraph margins */
+    margin: 0;
+}
+
+/*
+=============== 
+Tips & Tricks Page
+===============
+*/
+
+/* set up grid displkay for tips */
+.tips-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding: 0.25rem;
+}
+
+/* style tiles for each tip */
+.tip-tile {
+    border-radius: var(--borderRadius);
+    display: flex;
+    /* set flex direction so recipe images/text are stacked vertically */
+    flex-direction: column;
+    /* align items horizontally */
+    align-items: center;
+    box-shadow: var(--shadow);
+    /* ensure tip boxes are the same size */
+    height: 100%;
+    padding: 1.5rem;
+    /* background color for readability */
+    background: var(--grey-100);
+}
+
+/* change heading colors */
+.tip-tile h3, h5 {
+    color: var(--primary-500);
+}
+
+/* adjust margins above and below */
+.tip-tile h5 {
+    margin: 0.75rem auto 0.5rem;
+}
+
+/* justify text */
+.tip-tile p {
+    text-align: justify;
+}
+
+.tip-tile li {
+    /* add bullet points for list */
+    list-style: disc;
+    font-size: 1rem;
+    letter-spacing: var(--letterSpacing);
+    text-align: justify;
+}
+
+/*
+=============== 
+Contact Page
+===============
+*/
+
+.contact-info h3, .contact-info h4 {
+    /* set heading color */
+    color: var(--primary-500);
+}
+
+.contact-info h4 {
+    /* add custom margins to headings */
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+
+/* full width for contact form */
+.contact-form {
+    width: 100%;
+    margin: 0;
+}
+
+/* split container in 2 columns for text and the form */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* set gap between */
+    gap: 2rem 3rem;
+    padding-bottom: 3rem;
+    text-align: center;
+}
+
+/*
+=============== 
+
+===============
+*/

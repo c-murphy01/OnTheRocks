@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <!-- set intial size of page and dont allow users to zoom -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <!-- title of webpage -->
+        <title>Recipes | On The Rocks</title>
+        <!-- normailize CSS for consistency across browsers -->
+        <link rel="stylesheet" href="./CSS/normalize.css">
+        <!-- Link to main CSS file -->
+        <link rel="stylesheet" href="./CSS/main.css">
+        <!-- font awesome-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <!-- link to favicon -->
+        <link rel="icon" type="image/x-icon" href="./images/new-favicon.ico">
+    </head>
+
+    <body>
+        
+        <!-- START OF NAVBAR -->
+        <!-- Navbar spans whole width -->
+        <nav class="navbar">
+            <!-- content contains everything, width can be adjusted -->
+            <div class="nav-content">
+                <!-- navbar header contains logo -->
+                <div class="nav-header">
+
+                    <!-- button for assign 2 Q1 here -->
+                    <!-- <button type="button" class="btn nav-btn">
+                        add icon here 
+                    </button> -->
+
+                    <a href="./index.html" class="nav-logo">
+                        <img src="./images/logo.png" alt="On The Rocks">
+                    </a>
+                </div>
+                <!-- rest of navbar contents/links -->
+                <div class="nav-tabs">
+                    <!-- list of navbar tabs with links to other pages -->
+                    <a href="./index.html" class="nav-tab">Home</a>
+                    <a href="./recipes.html" class="nav-tab">Recipes</a>
+                    <a href="./cotw.html" class="nav-tab">Cocktail of the Week</a>
+                    <a href="./tips.html" class="nav-tab">Tips & Tricks</a>
+                    <!-- contact tab is a button and will be styled differently -->
+                    <div class="nav-tab contact-tab">
+                        <a href="./contact.html" class="btn">Contact</a>
+                    </div>
+                </div>
+            </div>            
+        </nav>
+        <!-- END OF NAVBAR -->
+
+        <!-- START OF MAIN -->
+        <!-- main contains the main body of the page -->
+        <main class="page">
+            <!-- recipes page is split using a grid -->
+            <div class="recipe-grid">
+                <!-- first part of the grid is a section to filter the recipes -->
+                <aside class="recipe-filter">
+                    <h4>Filter Recipes</h4>
+                    <!-- dropdown buttons with filters in each -->
+                    <div class="dropdown">
+                        <!-- the actual button -->
+                        <button class="dropbtn">Spirit</button>
+                            <!-- dropdown items -->
+                            <div class="dropdown-content">
+                                <a href="#" class="filter">Gin</a>
+                                <a href="#" class="filter">Rum</a>
+                                <a href="#" class="filter">Tequila</a>
+                                <a href="#" class="filter">Vodka</a>
+                                <a href="#" class="filter">Whiskey</a>
+                            </div>
+                    </div>
+                    <div class="dropdown">
+                        <!-- the actual button -->
+                        <button class="dropbtn">Season</button>
+                            <!-- dropdown items -->
+                            <div class="dropdown-content">
+                                <a href="#" class="filter">Spring</a>
+                                <a href="#" class="filter">Summer</a>
+                                <a href="#" class="filter">Autumn</a>
+                                <a href="#" class="filter">Winter</a>
+                            </div>
+                    </div>
+                </aside>
+                <!-- the actual recipes take up the other 3 columns -->
+                <section class="recipes-container">
+                    <!-- each recipe is a section surrounded by a link to the individual recipe page -->
+                    <a href="old-fashioned.html">
+                        <section class="recipe">
+                            <!-- image, name and short description -->
+                            <img src="./images/oldfashioned.jpeg" alt="Old Fashioned" class="recipe-image">
+                            <h4>Old Fashioned</h4>
+                            <p>
+                                The Old Fashioned is a timeless whiskey cocktail, elegantly simple with sugar, bitters, 
+                                and a twist of citrus.
+                            </p>
+                        </section>
+                    </a>
+                    <a href="daiquiri.html">
+                        <section class="recipe">
+                            <img src="./images/daiquiri.jpeg" alt="Daiquiri" class="recipe-image">
+                            <h4>Daiquiri</h4>
+                            <p>
+                                A daiquiri is a classic Cuban cocktail, revered for its simple elegance and refreshing 
+                                blend of rum, lime, and sweetness.
+                            </p>
+                        </section>
+                    </a>
+                    <a href="espresso-martini.html">
+                        <section class="recipe">
+                            <img src="./images/espresso-martini.jpeg" alt="Espresso Martini" class="recipe-image">
+                            <h4>Espresso Martini</h4>
+                            <p>
+                                A classic espresso martini is a sophisticated, frothy cocktail that combines rich coffee 
+                                flavors with a spirited kick, perfect for a stylish evening boost.
+                            </p>
+                        </section>
+                    </a>
+                    <a href="bees-knees.html">
+                        <section class="recipe">
+                            <img src="./images/bees-knees.jpeg" alt="Bee's Knees" class="recipe-image">
+                            <h4>Bee's Knees</h4>
+                            <p>
+                                A classic Prohibition-era cocktail, the Bee's Knees is a delightfully sweet and 
+                                citrusy gin-based drink enhanced with the smooth richness of honey.
+                            </p>
+                        </section>
+                    </a>
+                    <a href="paper-plane.html">
+                        <section class="recipe">
+                            <img src="./images/paper-plane.jpeg" alt="Paper Plane" class="recipe-image">
+                            <h4>Paper Plane</h4>
+                            <p>
+                                A Paper Plane cocktail is a sophisticated, citrusy blend that offers a perfect 
+                                balance of sweet and bitter notes, creating a refreshing, modern classic.
+                            </p>
+                        </section>
+                    </a>
+                    <a href="margarita.html">
+                        <section class="recipe">
+                            <img src="./images/margarita.jpeg" alt="Margarita" class="recipe-image">
+                            <h4>Margarita</h4>
+                            <p>
+                                A classic Margarita is a refreshing and tangy cocktail, perfect for any occasion, 
+                                featuring a delightful blend of sour and sweet with a salted rim.
+                            </p>
+                        </section>
+                    </a>
+                    <!-- template to add more recipes -->
+                    <!-- <a href="#">
+                            <section class="recipe">
+                                <img src="#" alt="#" class="recipe-image">
+                                <h4>New Recipe</h4>
+                                <p>Description</p>
+                            </section>
+                        </a> -->
+                </section>
+            </div>
+        </main>
+        <!-- END OF MAIN -->
+
+        <!-- START OF FOOTER -->
+        <footer class="page-footer">
+            <address class="footer-address">
+                &copy; On The Rocks by <a href="mailto:colm.murphy445@mail.dcu.ie">Colm Murphy</a><br>
+                made with HTML and CSS
+            </address>
+        </footer>
+        <!-- END OF FOOTER -->
+    </body>
+
+</html>
