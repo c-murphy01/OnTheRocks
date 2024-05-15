@@ -62,7 +62,7 @@
                 <!-- row for cocktail name (text)-->
                 <div class="form-row">
                     <label for="cocktailName" class="form-label">Cocktail Name</label>
-                    <input type="text" name="cocktailName" id="cocktailName" class="form-input" required>
+                    <input type="text" name="cocktailName" id="cocktailName" class="form-input" required placeholder="Enter cocktail name">
                 </div>
 
                 <!-- row for whethere its shaken or stirred (radio selection) -->
@@ -114,7 +114,7 @@
                 <!-- row for which garnish (text) -->
                 <div class="form-row">
                     <label for="garnish" class="form-label">Garnish</label>
-                    <input type="text" id="garnish" name="garnish" class="form-input">
+                    <input type="text" id="garnish" name="garnish" class="form-input" placeholder="e.g. Lemon twist">
                 </div>
 
                 <!-- rows for ingredients and corresponding measurements (text) -->
@@ -123,22 +123,22 @@
                     <div class="form-row ingredient-row">
                         <div class="ingredient-group">
                             <label for="ingredient1" class="form-label">Ingredient</label>
-                            <input type="text" name="ingredients[]" id="ingredient1" class="form-input" required>
+                            <input type="text" name="ingredients[]" id="ingredient1" class="form-input" required placeholder="Ingredient 1">
                         </div>
                         <div class="ingredient-group">
                             <label for="measurement1" class="form-label">Measurement</label>
-                            <input type="text" name="measurements[]" id="measurement1" class="form-input" required>
+                            <input type="text" name="measurements[]" id="measurement1" class="form-input" required placeholder="Amount (e.g. 1oz)">
                         </div>
                     </div>
                     <!-- same as above -->
                     <div class="form-row ingredient-row">
                         <div class="ingredient-group">
                             <label for="ingredient2" class="form-label">Ingredient</label>
-                            <input type="text" name="ingredients[]" id="ingredient2" class="form-input" required>
+                            <input type="text" name="ingredients[]" id="ingredient2" class="form-input" required placeholder="Ingredient 2">
                         </div>
                         <div class="ingredient-group">
                             <label for="measurement2" class="form-label">Measurement</label>
-                            <input type="text" name="measurements[]" id="measurement2" class="form-input" required>
+                            <input type="text" name="measurements[]" id="measurement2" class="form-input" required placeholder="Amount (e.g. 1oz)">
                         </div>
                     </div>
                 </div>
@@ -155,7 +155,7 @@
                 <!-- row for a description of the cocktail (text) -->
                 <div class="form-row">
                     <label for="description" class="form-label">Description</label>
-                    <textarea id="description" name="description" class="form-textarea" required maxlength="320"></textarea>
+                    <textarea id="description" name="description" class="form-textarea" required maxlength="320" placeholder="Description of your cocktail (320 characters max)"></textarea>
                 </div>
 
                 <!-- row for prep time (number entry) -->
@@ -164,10 +164,16 @@
                     <input type="number" name="prepTime" id="prepTime" class="form-input" min="1" max="60" required>
                 </div>
 
+                <!-- row for a method/instructions (text) -->
+                <div class="form-row">
+                    <label for="preparation" class="form-label">Preparation Steps</label>
+                    <textarea id="preparation" name="preparation" class="form-textarea" required maxlength="320" placeholder="Explain how to make your cocktail step by step"></textarea>
+                </div>
+
                 <!-- row for image URL if available, not required -->
                 <div class="form-row">
                     <label for="imageUrl" class="form-label">Image URL</label>
-                    <input type="url" name="imageUrl" id="imageUrl" class="form-input">
+                    <input type="url" name="imageUrl" id="imageUrl" class="form-input" placeholder="http://example.com/image.jpg">
                 </div>
 
                 <!-- submit button -->
