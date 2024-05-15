@@ -221,23 +221,25 @@ Navbar
 
 /* all components of navbar */
 .nav-content {
+    position: relative;
     /* dont fill width entirely */
     width: 90vw; 
     display: flex;
     /* center content vertically */
     align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
 }
 
 /* logo in navbar */
 .nav-header {
-    /* THIS SECTION WILL BE NEEDED IN ASSIGN 2 */
-    /* set to image height */
-    /* height: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0; */
     margin-right: 2rem;
+}
+
+.contact-tab {
+    /* move contact tab all the way to the right */
+    margin-right: 0;
+    margin-left: auto;
 }
 
 .nav-logo {
@@ -253,19 +255,30 @@ Navbar
 }
 
 .nav-btn {
+    /* place at front so its always clickable */
+    z-index: 10;
     padding: 0.75rem 1rem;
+    /* transformation transition */
+    transition: transform 0.5s ease;
+}
+
+.nav-btn.active {
+    /* rotate the button when clicked */
+    transform: rotate(180deg);
 }
 
 .nav-tabs {
-    /* display: flex; */
-    /* don't display the tabs until the nav button is clicked */
-    display: none;
-    /* set transition for hover */ 
-    transition: var(--transition); 
+    /* fill rest of space with tabs */
+    flex: 1;
+    display: flex;
+    /* center items vertically */
     align-items: center;
-    width: 100%;
-    /* space between logo and tabs */ 
-    margin-left: 2rem; 
+    /* move the tabs to the right to hide them */
+    transform: translateX(150%);
+    /* transform transition */
+    transition: transform 0.5s ease;
+    /* add space between tabs and button */
+    margin-left: 1rem;
 }
 
 .nav-tab {
@@ -284,12 +297,6 @@ Navbar
 /* change color on hover */
 .nav-tab:hover {
     color: var(--primary-400);
-}
-
-.contact-tab {
-    /* move contact tab all the way to the right */
-    margin-right: 0;
-    margin-left: auto;
 }
 
 /*
