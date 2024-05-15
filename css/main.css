@@ -484,6 +484,12 @@ Home Page
     border-radius: var(--borderRadius);
 }
 
+/* for the submit recipe container */
+.span-cols {
+    /* span across both columns */
+    grid-column: 1 / -1;
+}
+
 .preview-container h4 {
     /* change heading colour and bottom margin */
     color: var(--primary-400);
