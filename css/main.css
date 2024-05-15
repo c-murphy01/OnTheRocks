@@ -922,6 +922,80 @@ Contact Page
 
 /*
 =============== 
+Submit Recipe Page
+===============
+*/
+
+.recipe-form {
+    text-align: center;
+}
+
+.recipe-form h2 {
+    color: var(--primary-500);
+}
+
+/* container for custom radio buttons */
+.custom-radio {
+    display: flex;
+    justify-content: center;
+    /* margin bottom to spread out options */
+    margin-bottom: 1rem;
+    /* set font to match rest of website */
+    font-size: 1rem;
+    letter-spacing: var(--letterSpacing);
+}
+
+/* hide the default radio buttons */
+.custom-radio input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+/* create custom buttons */
+.radio-btn {
+    /* change cursor */
+    cursor: pointer;
+    /* set heioght and width */
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-top: 2px;
+    margin-right: 1rem;
+    background-color: var(--grey-300);
+    /* make the squares into circles */
+    border-radius: 50%;
+}
+
+/* darken button on mouse hover */
+.custom-radio:hover input ~ .radio-btn {
+    background-color: var(--grey-400);
+}
+
+/* change button color when clicked */
+.custom-radio input:checked ~ .radio-btn {
+    background-color: var(--primary-400);
+}
+
+.ingredient-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ingredient-group {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 48%; /* Adjusts the width of each group to fit side by side */
+}
+
+.add-btn, .minus-btn {
+    margin-bottom: 1rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+}
+
+/*
+=============== 
 
 ===============
 */

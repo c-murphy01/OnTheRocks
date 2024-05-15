@@ -27,15 +27,14 @@
                 <!-- navbar header contains logo -->
                 <div class="nav-header">
 
-                    <!-- button for assign 2 Q1 here -->
-                    <!-- <button type="button" class="btn nav-btn">
-                        add icon here 
-                    </button> -->
-
                     <a href="./index.html" class="nav-logo">
                         <img src="./images/logo.png" alt="On The Rocks">
                     </a>
                 </div>
+                    <!-- button for assign 2 Q1 here -->
+                    <button type="button" class="btn nav-btn">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
                 <!-- rest of navbar contents/links -->
                 <div class="nav-tabs">
                     <!-- list of navbar tabs with links to other pages -->
@@ -55,7 +54,126 @@
         <!-- START OF MAIN -->
         <!-- main contains the main body of the page -->
         <main class="page">
-            
+            <form class="form recipe-form">
+
+                <!-- form heading -->
+                <h2>Submit Your Cocktail Recipe</h2>
+
+                <!-- row for cocktail name (text)-->
+                <div class="form-row">
+                    <label for="cocktailName" class="form-label">Cocktail Name</label>
+                    <input type="text" name="cocktailName" id="cocktailName" class="form-input" required>
+                </div>
+
+                <!-- row for whethere its shaken or stirred (radio selection) -->
+                <div class="form-row radio-row">
+                    <label class="form-label">Shaken or Stirred?</label>
+                    <div class="radio-buttons">
+                        <label class="custom-radio">
+                            <input type="radio" id="shaken" name="method" value="Shaken" required>
+                            <span class="radio-btn"></span>
+                            Shaken
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" id="stirred" name="method" value="Stirred">
+                            <span class="radio-btn"></span>
+                            Stirred
+                        </label>
+                    </div>
+                </div>
+
+                <!-- row for which base spirit (dropdown menu) -->
+                <div class="form-row">
+                    <label for="baseSpirit" class="form-label">Base Spirit</label>
+                    <select id="baseSpirit" name="baseSpirit" class="form-input" required>
+                        <option value="">Select Base Spirit</option>
+                        <option value="Vodka">Vodka</option>
+                        <option value="Gin">Gin</option>
+                        <option value="Rum">Rum</option>
+                        <option value="Tequila">Tequila</option>
+                        <option value="Whiskey">Whiskey</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- row for which glass to use (dropdown menu) -->
+                <div class="form-row">
+                    <label for="glassType" class="form-label">Glass Type</label>
+                    <select id="glassType" name="glassType" class="form-input" required>
+                        <option value="">Select Glass Type</option>
+                        <option value="Martini">Martini</option>
+                        <option value="Highball">Highball</option>
+                        <option value="Coupe">Coupe</option>
+                        <option value="Rocks">Rocks</option>
+                        <option value="Margarita">Margarita</option>
+                        <option value="Nick & Nora">Nick & Nora</option>
+                        <!-- <option value="#">#</option> -->
+                    </select>
+                </div>
+
+                <!-- row for which garnish (text) -->
+                <div class="form-row">
+                    <label for="garnish" class="form-label">Garnish</label>
+                    <input type="text" id="garnish" name="garnish" class="form-input">
+                </div>
+
+                <!-- rows for ingredients and corresponding measurements (text) -->
+                <!-- new class names for styling -->
+                <div class="ingredients-list">
+                    <div class="form-row ingredient-row">
+                        <div class="ingredient-group">
+                            <label for="ingredient1" class="form-label">Ingredient</label>
+                            <input type="text" name="ingredients[]" id="ingredient1" class="form-input" required>
+                        </div>
+                        <div class="ingredient-group">
+                            <label for="measurement1" class="form-label">Measurement</label>
+                            <input type="text" name="measurements[]" id="measurement1" class="form-input" required>
+                        </div>
+                    </div>
+                    <!-- same as above -->
+                    <div class="form-row ingredient-row">
+                        <div class="ingredient-group">
+                            <label for="ingredient2" class="form-label">Ingredient</label>
+                            <input type="text" name="ingredients[]" id="ingredient2" class="form-input" required>
+                        </div>
+                        <div class="ingredient-group">
+                            <label for="measurement2" class="form-label">Measurement</label>
+                            <input type="text" name="measurements[]" id="measurement2" class="form-input" required>
+                        </div>
+                    </div>
+                </div>
+                <!-- button to add another ingredient row if required using JavaScript -->
+                <button class="btn add-btn" type="button" onclick="addIngredientMeasurement()">
+                    <!-- fontawesome icon -->
+                    Add <i class="fa-solid fa-plus"></i>
+                </button>
+                <button class="btn minus-btn" type="button" onclick="removeIngredientMeasurement()">
+                    <!-- fontawesome icon -->
+                    Remove <i class="fa-solid fa-minus"></i>
+                </button>
+
+                <!-- row for a description of the cocktail (text) -->
+                <div class="form-row">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea id="description" name="description" class="form-textarea" required maxlength="320"></textarea>
+                </div>
+
+                <!-- row for prep time (number entry) -->
+                <div class="form-row">
+                    <label for="prepTime" class="form-label">Preparation Time (in minutes)</label>
+                    <input type="number" name="prepTime" id="prepTime" class="form-input" min="1" max="60" required>
+                </div>
+
+                <!-- row for image URL if available, not required -->
+                <div class="form-row">
+                    <label for="imageUrl" class="form-label">Image URL</label>
+                    <input type="url" name="imageUrl" id="imageUrl" class="form-input">
+                </div>
+
+                <!-- submit button -->
+                <button type="submit" class="btn btn-block">Submit Recipe</button>
+                
+            </form>
         </main>
 
         <!-- END OF MAIN -->
@@ -68,6 +186,7 @@
             </address>
         </footer>
         <!-- END OF FOOTER -->
+        <script src="./javascript/script.js"></script>
     </body>
 
 </html>

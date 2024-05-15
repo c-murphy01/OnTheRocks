@@ -17,3 +17,29 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+function addIngredientMeasurement() {
+    var container = document.querySelector('.ingredients-list');
+    var newRow = document.createElement('div');
+    newRow.className = 'form-row ingredient-row';
+    newRow.innerHTML = `
+        <div class="ingredient-group">
+            <label class="form-label">Ingredient</label>
+            <input type="text" name="ingredients[]" class="form-input" required>
+        </div>
+        <div class="ingredient-group">
+            <label class="form-label">Measurement</label>
+            <input type="text" name="measurements[]" class="form-input" required>
+        </div>
+    `;
+    container.appendChild(newRow);
+}
+
+function removeIngredientMeasurement(button) {
+    var ingredientList = document.querySelector('.ingredients-list');
+    if (ingredientList.children.length > 1) { // Check to ensure at least one row remains
+        ingredientList.removeChild(ingredientList.lastElementChild);
+    } else {
+        alert("You must have at least one ingredient.");
+    }
+}
