@@ -1,5 +1,6 @@
 // once the page is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // set all variables
     // select contact form as variable
     var contactForm = document.querySelector('.contact-form');
     // select tbody as variable
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         storedData.forEach(submission => {
             // create new row
             const row = responseTable.insertRow();
-            // insert cells and contets of cells
+            // insert cells and contents of cells
             row.insertCell(0).textContent = submission.name;
             row.insertCell(1).textContent = submission.email;
             row.insertCell(2).textContent = submission.message;
@@ -31,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // refresh table with above function
     updateTable();
 
-    // once the form is submitted
+    // once the submit button is clicked
     contactForm.addEventListener('submit', function(event) {
         // dont allow blank submission
         event.preventDefault();
@@ -78,6 +79,23 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.reset();
     });
 
+    // select all input fields
+    document.querySelectorAll('.form-input, .form-textarea').forEach(input => {
+        
+        // add focus event listener
+        input.addEventListener('focus', function() {
+            // add green shadow on focus
+            input.style.boxShadow = '0 0 15px var(--primary-500)';
+        });
+
+        // add blur event listener
+        input.addEventListener('blur', function() {
+            // remove shadow on blur
+            input.style.borderColor = '';
+            input.style.boxShadow = '';
+        });
+    });
+
     // add event listener for the toggle button
     toggleButton.addEventListener('click', function() {
         // toggle the display property of the response display
@@ -92,10 +110,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // clear button event listener
     clearStorageButton.addEventListener('click', function() {
-        // clear the recipes data
-        localStorage.removeItem('messages');
-        // refresh the table to show changes
-        updateTable();
+        // confirm box dialog to make sure the user wants to clear responses
+        if (confirm('Are you sure you want to clear all responses?')) {
+            // clear the recipes data
+            localStorage.removeItem('messages');
+            // refresh the table to show changes
+            updateTable();
+        }
     });
 });
 

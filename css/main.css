@@ -923,6 +923,7 @@ Contact Page
     text-align: center;
 }
 
+/* set default display for response table to none (will be updated to show with JS) */
 .contact-response-display {
     display: none;
 }
@@ -996,57 +997,62 @@ Submit Recipe Page
     flex-basis: 48%;
 }
 
+/* padding and margin for add/remove ingredients buttons */
 .add-btn, .minus-btn {
     margin-bottom: 1rem;
     padding: 0.25rem 0.75rem;
     font-size: 0.75rem;
 }
 
+/* set default display for response table to none (will be updated to show with JS) */
 .recipe-response-display {
     display: none;
+    /* allow horizontal scrolling on the table */
     overflow-x: auto;
 }
 
 /*
 =============== 
 Tables
-=======================================================================
-=======================================================================
-=======================================================================
-=======================================================================
-=======================================================================
-=======================================================================
+===============
 */
 
 .table {
     width: 100%;
+    /* remove borders between header sections */
     border-collapse: collapse;
     margin: 1rem 0;
     box-shadow: var(--shadow);
     background: var(--white);
     border-radius: var(--borderRadius);
     text-align: left;
+    /* hide overflow to allow border radius to work */
     overflow: hidden;
 }
 
+/* fix contact table layout to avoid extending page horizontally */
 .contact-table {
     table-layout: fixed;
 }
 
+/* set the button container to center the button */
 .toggle-button-container {
     display: flex;
     justify-content: center;
 }
 
+/* set clear button to hidden by default (will be shown with JS) */
 .clear-btn {
     display: none;
 }
 
+/* set header background to green */
 .table thead tr {
     background-color: var(--primary-500);
     color: var(--white);
 }
 
+/* min width for cells to avoid crowding */
 .table th, .table td {
     padding: 0.75rem;
     min-width: 150px;
@@ -1055,9 +1061,9 @@ Tables
 .table tbody {
     /* wrap text to next line */
     word-wrap: break-word;
-    /* word-break: break-all; */
 }
 
+/* light border between responses */
 .table tbody tr {
     border-bottom: 1px solid var(--grey-200);
 }

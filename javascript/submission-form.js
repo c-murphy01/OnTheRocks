@@ -1,5 +1,6 @@
 // wait for document to load
 document.addEventListener('DOMContentLoaded', function() {
+    // set all variables
     // get form by class name
     var form = document.querySelector('.recipe-form');
     // select tbody as variable
@@ -96,21 +97,46 @@ document.addEventListener('DOMContentLoaded', function() {
             return false; // don't allow submit
         }
 
+        // select remaining inputs as variables
         var garnish = document.getElementById('garnish').value;
+        // for ingredients and measurements, select all and place in an array
         var ingredients = Array.from(document.querySelectorAll('input[name="ingredients[]"]')).map(input => input.value);
         var measurements = Array.from(document.querySelectorAll('input[name="measurements[]"]')).map(input => input.value);
         var imageUrl = document.getElementById('imageUrl').value;
 
+        // create a submission with the above values
         const submission = { 
             cocktailName, method, baseSpirit, glassType, garnish, ingredients, measurements, description, prepTime, preparation, imageUrl 
         };
 
+        // retrieve past submissions
         const currentSubmissions = JSON.parse(localStorage.getItem('recipes')) || [];
+        // add the new submission
         currentSubmissions.push(submission);
+        // restore the newly updated list
         localStorage.setItem('recipes', JSON.stringify(currentSubmissions));
 
+        // refresh the table to show the new addition
         updateTable();
+        // reset the form
         form.reset();
+    });
+
+    // select all input fields
+    document.querySelectorAll('.form-input, .form-textarea').forEach(input => {
+        
+        // add focus event listener
+        input.addEventListener('focus', function() {
+            // add green shadow on focus
+            input.style.boxShadow = '0 0 15px var(--primary-500)';
+        });
+
+        // add blur event listener
+        input.addEventListener('blur', function() {
+            // remove shadow on blur
+            input.style.borderColor = '';
+            input.style.boxShadow = '';
+        });
     });
 
     // add listener for click to toggle button
@@ -129,12 +155,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // clear button event listener
     clearStorageButton.addEventListener('click', function() {
-        // clear the recipes data
-        localStorage.removeItem('recipes');
-        // refresh the table to show changes
-        updateTable();
+        // confirmation bix to ensure user wants to cklear responses
+        if (confirm('Are you sure you want to clear all responses?')) {
+            // clear the recipes data
+            localStorage.removeItem('recipes');
+            // refresh the table to show changes
+            updateTable();
+        }
     });
-
 });
 
 // function too another ingredient
