@@ -1,40 +1,42 @@
-// function too another ingredient
-function addIngredientMeasurement() {
-    // select ingredients list as container
-    var container = document.querySelector('.ingredients-list');
-    //create new row with format of the ingredient and measurement
-    var newRow = document.createElement('div');
-    newRow.className = 'form-row ingredient-row';
-    newRow.innerHTML = `
-        <div class="ingredient-group">
-            <label class="form-label">Ingredient</label>
-            <input type="text" name="ingredients[]" class="form-input" required>
-        </div>
-        <div class="ingredient-group">
-            <label class="form-label">Measurement</label>
-            <input type="text" name="measurements[]" class="form-input" required>
-        </div>
-    `;
-    // add row to container
-    container.appendChild(newRow);
-}
-
-// function to remove row
-function removeIngredientMeasurement(button) {
-    var ingredientList = document.querySelector('.ingredients-list');
-    // make sure there is at least one row
-    if (ingredientList.children.length > 1) {
-        // remove last ingredient
-        ingredientList.removeChild(ingredientList.lastElementChild);
-    } else {
-        alert("You must have at least one ingredient.");
-    }
-}
-
 // wait for document to load
 document.addEventListener('DOMContentLoaded', function() {
     // get form by class name
     var form = document.querySelector('.recipe-form');
+    // select tbody as variable
+    const responseTable = document.getElementById('recipe-response-table').getElementsByTagName('tbody')[0];
+    // select the table container as variable
+    var responseDisplay = document.querySelector('.recipe-response-display');
+    // select toggle button as variable
+    var toggleButton = document.querySelector('.table-btn');
+    // select clear button as variable
+    var clearStorageButton = document.querySelector('.clear-btn');
+
+    //fucntioon to update the response table
+    function updateTable() {
+        // retrieve previous submissions from local storage - parsed into an array
+        const storedData = JSON.parse(localStorage.getItem('recipes')) || [];
+        // clear table
+        responseTable.innerHTML = '';
+        // for each submission
+        storedData.forEach(submission => {
+            // create new row
+            const row = responseTable.insertRow();
+            // insert cells and contets of cells
+            row.insertCell(0).textContent = submission.cocktailName;
+            row.insertCell(1).textContent = submission.method;
+            row.insertCell(2).textContent = submission.baseSpirit;
+            row.insertCell(3).textContent = submission.glassType;
+            row.insertCell(4).textContent = submission.garnish;
+            row.insertCell(5).textContent = submission.ingredients.join(', ');
+            row.insertCell(6).textContent = submission.measurements.join(', ');
+            row.insertCell(7).textContent = submission.description;
+            row.insertCell(8).textContent = submission.prepTime;
+            row.insertCell(9).textContent = submission.preparation;
+        });
+    }
+
+    // refresh table with above function
+    updateTable();
     
     //when the form is submitted, perform checks
     form.addEventListener('submit', function(event) {
@@ -49,10 +51,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // check shaken/stirred is selected
-        var shaken = document.getElementById('shaken').checked;
-        var stirred = document.getElementById('stirred').checked;
+        var method = document.querySelector('input[name="method"]:checked').value;
         // if neither is selected, dont allow submit
-        if (!shaken && !stirred) {
+        if (!method) {
             alert('Please select whether the cocktail is shaken or stirred.');
             return false;
         }
@@ -95,7 +96,76 @@ document.addEventListener('DOMContentLoaded', function() {
             return false; // don't allow submit
         }
 
-        // if all checks above pass, submit the form
-        form.submit();
+        var garnish = document.getElementById('garnish').value;
+        var ingredients = Array.from(document.querySelectorAll('input[name="ingredients[]"]')).map(input => input.value);
+        var measurements = Array.from(document.querySelectorAll('input[name="measurements[]"]')).map(input => input.value);
+        var imageUrl = document.getElementById('imageUrl').value;
+
+        const submission = { 
+            cocktailName, method, baseSpirit, glassType, garnish, ingredients, measurements, description, prepTime, preparation, imageUrl 
+        };
+
+        const currentSubmissions = JSON.parse(localStorage.getItem('recipes')) || [];
+        currentSubmissions.push(submission);
+        localStorage.setItem('recipes', JSON.stringify(currentSubmissions));
+
+        updateTable();
+        form.reset();
     });
+
+    // add listener for click to toggle button
+    toggleButton.addEventListener('click', function() {
+        // if tabel is not shown
+        if (responseDisplay.style.display === 'none' || responseDisplay.style.display === '') {
+            // show table and clear button
+            responseDisplay.style.display = 'block';
+            clearStorageButton.style.display = 'block';
+            // otherwise hide them both
+        } else {
+            responseDisplay.style.display = 'none';
+            clearStorageButton.style.display = 'none';
+        }
+    });
+
+    // clear button event listener
+    clearStorageButton.addEventListener('click', function() {
+        // clear the recipes data
+        localStorage.removeItem('recipes');
+        // refresh the table to show changes
+        updateTable();
+    });
+
 });
+
+// function too another ingredient
+function addIngredientMeasurement() {
+    // select ingredients list as container
+    var container = document.querySelector('.ingredients-list');
+    //create new row with format of the ingredient and measurement
+    var newRow = document.createElement('div');
+    newRow.className = 'form-row ingredient-row';
+    newRow.innerHTML = `
+        <div class="ingredient-group">
+            <label class="form-label">Ingredient</label>
+            <input type="text" name="ingredients[]" class="form-input" required>
+        </div>
+        <div class="ingredient-group">
+            <label class="form-label">Measurement</label>
+            <input type="text" name="measurements[]" class="form-input" required>
+        </div>
+    `;
+    // add row to container
+    container.appendChild(newRow);
+}
+
+// function to remove row
+function removeIngredientMeasurement(button) {
+    var ingredientList = document.querySelector('.ingredients-list');
+    // make sure there is at least one row
+    if (ingredientList.children.length > 1) {
+        // remove last ingredient
+        ingredientList.removeChild(ingredientList.lastElementChild);
+    } else {
+        alert("You must have at least one ingredient.");
+    }
+}

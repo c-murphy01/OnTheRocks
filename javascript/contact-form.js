@@ -5,14 +5,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // select tbody as variable
     const responseTable = document.getElementById('contact-response-table').getElementsByTagName('tbody')[0];
     // select the table container as variable
-    var responseDisplay = document.getElementsByClassName('contact-response-display')[0];
+    var responseDisplay = document.querySelector('.contact-response-display');
     // select toggle button as variable
-    var toggleButton = document.getElementsByClassName('table-btn')[0];
+    var toggleButton = document.querySelector('.table-btn');
+    // select clear button as variable
+    var clearStorageButton = document.querySelector('.clear-btn');
 
     //fucntioon to update the response table
     function updateTable() {
         // retrieve previous submissions from local storage - parsed into an array
-        const storedData = JSON.parse(localStorage.getItem('submissions')) || [];
+        const storedData = JSON.parse(localStorage.getItem('messages')) || [];
         // clear table
         responseTable.innerHTML = '';
         // for each submission
@@ -63,11 +65,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const submission = { name, email, message };
 
         // retrieve previous submissions from storage
-        const currentSubmissions = JSON.parse(localStorage.getItem('submissions')) || [];
+        const currentSubmissions = JSON.parse(localStorage.getItem('messages')) || [];
         // add the new submission
         currentSubmissions.push(submission);
         // store again
-        localStorage.setItem('submissions', JSON.stringify(currentSubmissions));
+        localStorage.setItem('messages', JSON.stringify(currentSubmissions));
 
         // refresh the table with the new submission
         updateTable();
@@ -81,9 +83,19 @@ document.addEventListener('DOMContentLoaded', function() {
         // toggle the display property of the response display
         if (responseDisplay.style.display === 'none' || responseDisplay.style.display === '') {
             responseDisplay.style.display = 'block';
+            clearStorageButton.style.display = 'block';
         } else {
             responseDisplay.style.display = 'none';
+            clearStorageButton.style.display = 'none';
         }
+    });
+
+    // clear button event listener
+    clearStorageButton.addEventListener('click', function() {
+        // clear the recipes data
+        localStorage.removeItem('messages');
+        // refresh the table to show changes
+        updateTable();
     });
 });
 

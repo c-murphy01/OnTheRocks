@@ -1002,6 +1002,11 @@ Submit Recipe Page
     font-size: 0.75rem;
 }
 
+.recipe-response-display {
+    display: none;
+    overflow-x: auto;
+}
+
 /*
 =============== 
 Tables
@@ -1022,7 +1027,19 @@ Tables
     border-radius: var(--borderRadius);
     text-align: left;
     overflow: hidden;
+}
+
+.contact-table {
     table-layout: fixed;
+}
+
+.toggle-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.clear-btn {
+    display: none;
 }
 
 .table thead tr {
@@ -1032,12 +1049,13 @@ Tables
 
 .table th, .table td {
     padding: 0.75rem;
+    min-width: 150px;
 }
 
 .table tbody {
     /* wrap text to next line */
     word-wrap: break-word;
-    word-break: break-all;
+    /* word-break: break-all; */
 }
 
 .table tbody tr {

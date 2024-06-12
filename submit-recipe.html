@@ -177,9 +177,49 @@
                 </div>
 
                 <!-- submit button -->
-                <button type="submit" class="btn btn-block">Submit Recipe</button>
-                
+                <button type="submit" class="btn btn-block">Submit Recipe</button> 
+           
             </form>
+
+            <!-- button to show/hide form data -->
+            <div class="toggle-button-container">
+                <button type="button" class="btn table-btn recipe-table-btn">
+                    Show/Hide Responses <i class="fa-solid fa-table-list"></i>
+                </button>
+            </div>
+    
+            <div class="recipe-response-display">
+                <table id="recipe-response-table" class="table recipe-table">
+                    <!-- tabel header -->
+                    <thead>
+                        <tr>
+                            <th>Cocktail Name</th>
+                            <th>Method</th>
+                            <th>Base Spirit</th>
+                            <th>Glass Type</th>
+                            <th>Garnish</th>
+                            <th>Ingredients</th>
+                            <th>Measurements</th>
+                            <th>Description</th>
+                            <th>Prep Time</th>
+                            <th>Preparation</th>
+                            <th>Image URL</th>
+                        </tr>
+                    </thead>
+                    <!-- table body will be filled dynamically -->
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- clear local storage -->
+            <div class="toggle-button-container">
+                <button type="button" class="btn clear-btn">
+                    Clear Responses <i class="fa-solid fa-trash-alt"></i>
+                </button>
+            </div>
+
         </main>
 
         <!-- END OF MAIN -->
