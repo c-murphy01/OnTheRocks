@@ -134,7 +134,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // add blur event listener
         input.addEventListener('blur', function() {
             // remove shadow on blur
-            input.style.borderColor = '';
             input.style.boxShadow = '';
         });
     });
@@ -163,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
             updateTable();
         }
     });
-});
+});l
 
 // function too another ingredient
 function addIngredientMeasurement() {
