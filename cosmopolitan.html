@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <!-- set intial size of page and dont allow users to zoom -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <!-- title of webpage -->
+        <title>On The Rocks | Cocktail</title> <!-- title of website -->
+        <!-- normailize CSS for consistency across browsers -->
+        <link rel="stylesheet" href="./CSS/normalize.css">
+        <!-- Link to main CSS file -->
+        <link rel="stylesheet" href="./CSS/main.css">
+        <!-- font awesome-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <!-- link to favicon -->
+        <link rel="icon" type="image/x-icon" href="./images/new-favicon.ico">
+    </head>
+
+    <body>
+        
+        <!-- START OF NAVBAR -->
+        <!-- Navbar spans whole width -->
+        <nav class="navbar">
+            <!-- content contains everything, width can be adjusted -->
+            <div class="nav-content">
+                <!-- navbar header contains logo -->
+                <div class="nav-header">
+
+                    <!-- button for assign 2 Q1 here -->
+                    <!-- <button type="button" class="btn nav-btn">
+                        add icon here 
+                    </button> -->
+
+                    <a href="./index.html" class="nav-logo">
+                        <img src="./images/logo.png" alt="On The Rocks">
+                    </a>
+                </div>
+                <!-- rest of navbar contents/links -->
+                <div class="nav-tabs">
+                    <!-- list of navbar tabs with links to other pages -->
+                    <a href="./index.html" class="nav-tab">Home</a>
+                    <a href="./recipes.html" class="nav-tab">Recipes</a>
+                    <a href="./cotw.html" class="nav-tab">Cocktail of the Week</a>
+                    <a href="./tips.html" class="nav-tab">Tips & Tricks</a>
+                    <!-- contact tab is a button and will be styled differently -->
+                    <div class="nav-tab contact-tab">
+                        <a href="./contact.html" class="btn">Contact</a>
+                    </div>
+                </div>
+            </div>            
+        </nav>
+        <!-- END OF NAVBAR -->
+
+        <!-- START OF MAIN -->
+        <!-- main contains the main body of the page -->
+        <main class="page recipe-page">
+            <a href="recipes.html" class="back-btn">
+                <i class="fa-solid fa-arrow-left-long"></i>   All Recipes
+            </a>
+            <header class="recipe-hero">
+                <div class="recipe-hero-img-container">
+                    <img src="./images/cosmopolitan-long.jpeg" alt="Cosmopolitan Banner" class="recipe-hero-image">
+                    <div class="recipe-hero-text">
+                        <h1>Cosmopolitan</h1>
+                    </div>
+                </div>
+            </header>
+            <div class="recipe-content">
+                <div class="recipe-description-container">
+                    <div class="recipe-description">
+                        <h4>Description</h4>
+                        <p>
+                            The Cosmopolitan, also known as a "Cosmo," blends vodka, cranberry juice, 
+                            lime juice, and triple sec for a refreshing mix that's both sweet and tart. 
+                            Its vibrant red hue and sophisticated edge make it a favorite among cocktail lovers.
+                        </p>
+                    </div>
+                </div>
+                <section class="drink-details">
+                    <div class="detail-item">
+                        <p>Shaken/Stirred:</p>
+                        <i class="fa-solid fa-mortar-pestle"></i>
+                        <span>Shaken</span>
+                    </div>
+                    <div class="detail-item">
+                        <p>Base Spirit:</p>
+                        <i class="fa-solid fa-wine-bottle"></i>
+                        <span>Vodka</span>
+                    </div>
+                    <div class="detail-item">
+                        <p>Glass:</p>
+                        <i class="fa-solid fa-martini-glass"></i>
+                        <span>Martini Glass</span>
+                    </div>
+                    <div class="detail-item">
+                        <p>Garnish:</p>
+                        <i class="fa-regular fa-lemon"></i>
+                        <span>Lime Wheel</span>
+                    </div>
+                </section>
+                <div class="recipe-details-container">
+                    <div class="recipe-ingredients">
+                        <h4>Ingredients</h4>
+                        <div class="ingredients-grid">
+                            <div class="measurements">
+                                <ul>
+                                    <li>45ml</li>
+                                    <li>15ml</li>
+                                    <li>15ml</li>
+                                    <li>30ml</li>
+                                </ul>
+                            </div>
+                            <div class="ingredients">
+                                <ul>
+                                    <li>Vodka</li>
+                                    <li>Lime Juice</li>
+                                    <li>Triple Sec</li>
+                                    <li>Cranberry Juice</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recipe-prep">
+                        <h4>Preparation</h4>
+                        <p>
+                            Combine vodka, cranberry juice, lime juice, and triple sec in a shaker with ice.
+                            Shake vigorously and strain into a chilled martini glass.
+                            Garnish with a lime wheel.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- END OF MAIN -->
+
+        <!-- START OF FOOTER -->
+        <footer class="page-footer">
+            <address class="footer-address">
+                &copy; On The Rocks by <a href="mailto:colm.murphy445@mail.dcu.ie">Colm Murphy</a><br>
+                made with HTML and CSS
+            </address>
+        </footer>
+        <!-- END OF FOOTER -->
+    </body>
+
+</html>

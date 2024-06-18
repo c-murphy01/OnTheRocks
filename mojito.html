@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <!-- set intial size of page and dont allow users to zoom -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <!-- title of webpage -->
+        <title>On The Rocks | Cocktail</title> <!-- title of website -->
+        <!-- normailize CSS for consistency across browsers -->
+        <link rel="stylesheet" href="./CSS/normalize.css">
+        <!-- Link to main CSS file -->
+        <link rel="stylesheet" href="./CSS/main.css">
+        <!-- font awesome-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <!-- link to favicon -->
+        <link rel="icon" type="image/x-icon" href="./images/new-favicon.ico">
+    </head>
+
+    <body>
+        
+        <!-- START OF NAVBAR -->
+        <!-- Navbar spans whole width -->
+        <nav class="navbar">
+            <!-- content contains everything, width can be adjusted -->
+            <div class="nav-content">
+                <!-- navbar header contains logo -->
+                <div class="nav-header">
+
+                    <!-- button for assign 2 Q1 here -->
+                    <!-- <button type="button" class="btn nav-btn">
+                        add icon here 
+                    </button> -->
+
+                    <a href="./index.html" class="nav-logo">
+                        <img src="./images/logo.png" alt="On The Rocks">
+                    </a>
+                </div>
+                <!-- rest of navbar contents/links -->
+                <div class="nav-tabs">
+                    <!-- list of navbar tabs with links to other pages -->
+                    <a href="./index.html" class="nav-tab">Home</a>
+                    <a href="./recipes.html" class="nav-tab">Recipes</a>
+                    <a href="./cotw.html" class="nav-tab">Cocktail of the Week</a>
+                    <a href="./tips.html" class="nav-tab">Tips & Tricks</a>
+                    <!-- contact tab is a button and will be styled differently -->
+                    <div class="nav-tab contact-tab">
+                        <a href="./contact.html" class="btn">Contact</a>
+                    </div>
+                </div>
+            </div>            
+        </nav>
+        <!-- END OF NAVBAR -->
+
+        <!-- START OF MAIN -->
+        <!-- main contains the main body of the page -->
+        <main class="page recipe-page">
+            <!-- button to go back to the all recipes page with font awesome icon -->
+            <a href="recipes.html" class="back-btn">
+                <i class="fa-solid fa-arrow-left-long"></i>   All Recipes
+            </a>
+            <!-- page header which holds the hero image for the recipe -->
+            <header class="recipe-hero">
+                <div class="recipe-hero-img-container">
+                    <!-- link to the recipe hero image -->
+                    <img src="./images/mojito-long.jpg" alt="Mojito Banner" class="recipe-hero-image">
+                    <!-- recipe title -->
+                    <div class="recipe-hero-text">
+                        <h1>Mojito</h1>
+                    </div>
+                </div>
+            </header>
+            <!-- main section of the page is the recipe content -->
+            <div class="recipe-content">
+                <!-- recipe description heading and description itself -->
+                <div class="recipe-description-container">
+                    <div class="recipe-description">
+                        <h4>Description</h4>
+                <p>
+                    Originating from Cuba, the Mojito is a refreshing cocktail that blends sweet, citrus, and mint 
+                    flavors with rum, topped off with a splash of soda for a crisp, invigorating drink. This iconic 
+                    concoction is perfect for savoring on a hot day or during lively summer evenings.
+                </p>
+                    </div>
+                </div>
+                <!-- drink details give some basic details about the recipe and includes font awesome icons -->
+                <section class="drink-details">
+                    <div class="detail-item">
+                        <p>Shaken/Stirred:</p>
+                        <i class="fa-solid fa-mortar-pestle"></i>
+                        <span>Muddled/Stirred</span>
+                    </div>
+                    <div class="detail-item">
+                        <p>Base Spirit:</p>
+                        <i class="fa-solid fa-wine-bottle"></i>
+                        <span>Rum</span>
+                    </div>
+                    <div class="detail-item">
+                        <p>Glass:</p>
+                        <i class="fa-solid fa-martini-glass"></i></i>
+                        <span>Highball Glass</span>
+                    </div>
+                    <div class="detail-item">
+                        <p>Garnish:</p>
+                        <i class="fa-regular fa-lemon"></i>
+                        <span>Mint Sprig</span>
+                    </div>
+                </section>
+                <!-- show the ingredients/measurements and the preparation steps for the recipe -->
+                <div class="recipe-details-container">
+                    <div class="recipe-ingredients">
+                        <h4>Ingredients</h4>
+                        <div class="ingredients-grid">
+                            <div class="measurements">
+                                <ul>
+                                    <li>50ml</li>
+                                    <li>20ml</li>
+                                    <li>2 tsp</li>
+                                    <li>To top up</li>
+                                    <li>5-6</li>
+                                </ul>
+                            </div>
+                            <div class="ingredients">
+                                <ul>
+                                    <li>White Rum</li>
+                                    <li>Fresh Lime Juice</li>
+                                    <li>Sugar</li>
+                                    <li>Soda Water</li>
+                                    <li>Mint Leaves</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recipe-prep">
+                        <h4>Preparation</h4>
+                        <p>
+                            Muddle mint leaves and sugar in a highball glass.
+                            Add lime juice and rum, fill with ice, top with soda water.
+                            Stir well and garnish with a mint sprig.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- END OF MAIN -->
+
+        <!-- START OF FOOTER -->
+        <footer class="page-footer">
+            <address class="footer-address">
+                &copy; On The Rocks by <a href="mailto:colm.murphy445@mail.dcu.ie">Colm Murphy</a><br>
+                made with HTML and CSS
+            </address>
+        </footer>
+        <!-- END OF FOOTER -->
+    </body>
+
+</html>
