@@ -104,6 +104,10 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Please select whether the cocktail is shaken or stirred.');
             return false;
         }
+        // if other is selected, take the value from the custom input
+        if (method === "Other") {
+            method = document.getElementById('customMethod').value;
+        }
 
         // base spirit input
         var baseSpirit = document.getElementById('baseSpirit').value;
@@ -112,6 +116,10 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Please select a base spirit.');
             return false;
         }
+        // if other is selected, take the value from the custom input
+        if (baseSpirit === "Other") {
+            baseSpirit = document.getElementById('customBaseSpirit').value;
+        }
 
         // glass type input
         var glassType = document.getElementById('glassType').value;
@@ -119,6 +127,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (glassType === "") {
             alert('Please select a glass to be used.');
             return false;
+        }
+        // if other is selected, take the value from the custom input
+        if (glassType === "Other") {
+            glassType = document.getElementById('customGlassType').value;
         }
 
         // check description field input
