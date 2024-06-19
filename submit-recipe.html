@@ -79,7 +79,14 @@
                             <span class="radio-btn"></span>
                             Stirred
                         </label>
+                        <label class="custom-radio">
+                            <input type="radio" id="otherMethod" name="method" value="Other">
+                            <span class="radio-btn"></span>
+                            Other
+                        </label>
                     </div>
+                    <!-- text input field for custom input if other is chosen above, hidden initially, will be shown using JS -->
+                    <input type="text" id="customMethod" name="customMethod" class="form-input" placeholder="Please enter method" style="display:none;">
                 </div>
 
                 <!-- row for which base spirit (dropdown menu) -->
@@ -94,6 +101,8 @@
                         <option value="Whiskey">Whiskey</option>
                         <option value="Other">Other</option>
                     </select>
+                    <!-- text input field for custom input if other is chosen above, hidden initially, will be shown using JS -->
+                    <input type="text" id="customBaseSpirit" name="customBaseSpirit" class="form-input custom-input" placeholder="Please enter base spirit" style="display:none;">
                 </div>
 
                 <!-- row for which glass to use (dropdown menu) -->
@@ -106,9 +115,11 @@
                         <option value="Coupe">Coupe</option>
                         <option value="Rocks">Rocks</option>
                         <option value="Margarita">Margarita</option>
-                        <option value="Nick & Nora">Nick & Nora</option>
+                        <option value="Other">Other</option>
                         <!-- <option value="#">#</option> -->
                     </select>
+                    <!-- text input field for custom input if other is chosen above, hidden initially, will be shown using JS -->
+                     <input type="text" id="customGlassType" name="customGlassType" class="form-input custom-input" placeholder="Please enter glass type" style="display:none;">
                 </div>
 
                 <!-- row for which garnish (text) -->

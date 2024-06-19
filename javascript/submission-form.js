@@ -12,6 +12,52 @@ document.addEventListener('DOMContentLoaded', function() {
     // select clear button as variable
     var clearStorageButton = document.querySelector('.clear-btn');
 
+    // funtions to add custom input if 'Other' is selected
+    // select the radio buttons and custom input field as variables
+    const methodRadios = document.querySelectorAll('input[name="method"]');
+    const customMethodInput = document.getElementById('customMethod');
+
+    // for each radio button add a listener to check for whether it's selectedness changes
+    methodRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            // if other is selected display the custom input field
+            if (radio.value === 'Other') {
+             customMethodInput.style.display = 'block';
+            // otherwise hide it
+            } else {
+               customMethodInput.style.display = 'none';
+            }
+        });
+    });
+
+    // selected base spirit and custom input as variables
+    const baseSpiritSelect = document.getElementById('baseSpirit');
+    const customBaseSpiritInput = document.getElementById('customBaseSpirit');
+
+    // add listener to changes in selections
+    baseSpiritSelect.addEventListener('change', function() {
+        // if other is selected, show custom input field
+        if (baseSpiritSelect.value === 'Other') {
+            customBaseSpiritInput.style.display = 'block';
+        // otherwise hide it
+        } else {
+            customBaseSpiritInput.style.display = 'none';
+        }
+    });
+
+    // selected glass type and custom input as variables
+    const glassTypeSelect = document.getElementById('glassType');
+    const customGlassTypeInput = document.getElementById('customGlassType');
+
+    // same function as the spirit type above
+    glassTypeSelect.addEventListener('change', function() {
+        if (glassTypeSelect.value === 'Other') {
+            customGlassTypeInput.style.display = 'block';
+        } else {
+            customGlassTypeInput.style.display = 'none';
+        }
+    });
+
     //fucntioon to update the response table
     function updateTable() {
         // retrieve previous submissions from local storage - parsed into an array
@@ -164,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });l
 
-// function too another ingredient
+// function to add another ingredient
 function addIngredientMeasurement() {
     // select ingredients list as container
     var container = document.querySelector('.ingredients-list');
@@ -185,7 +231,7 @@ function addIngredientMeasurement() {
     container.appendChild(newRow);
 }
 
-// function to remove row
+// function to remove ingredient row
 function removeIngredientMeasurement(button) {
     var ingredientList = document.querySelector('.ingredients-list');
     // make sure there is at least one row

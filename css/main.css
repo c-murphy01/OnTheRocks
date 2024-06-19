@@ -985,6 +985,10 @@ Submit Recipe Page
     background-color: var(--primary-400);
 }
 
+.custom-input {
+    margin-top: 0.5rem;
+}
+
 .ingredient-row {
     display: flex;
     justify-content: space-between;
