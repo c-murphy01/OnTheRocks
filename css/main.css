@@ -623,13 +623,13 @@ Recipe Page
 }
 
 /* position dropdown menu below the button */
-.dropdown {
+.dropdown, .filter-option {
     position: relative;
     transition: var(--transition); 
 }
 
 /* set styling for the dropdown button to not look like a button */
-.dropbtn {
+.dropbtn, .filter-btn {
     background: none;
     border: transparent;
     border-radius: var(--borderRadius);
@@ -657,6 +657,12 @@ Recipe Page
 .dropdown:hover .dropbtn {
     color: var(--primary-500);
     background-color: var(--grey-100);
+}
+
+.filter-option:hover .filter-btn {
+    color: var(--primary-500);
+    background-color: var(--grey-100);
+    cursor: pointer;
 }
 
 /* show dropdown content on hover on button */

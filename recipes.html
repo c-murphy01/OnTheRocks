@@ -61,34 +61,41 @@
                 <!-- first part of the grid is a section to filter the recipes -->
                 <aside class="recipe-filter">
                     <h4>Filter Recipes</h4>
+                    <div class="filter-option">
+                        <button class="filter-btn" data-filter="none">All Recipes</button>
+                    </div>
                     <!-- dropdown buttons with filters in each -->
                     <div class="dropdown">
                         <!-- the actual button -->
                         <button class="dropbtn">Spirit</button>
                             <!-- dropdown items --> 
                             <div class="dropdown-content">
-                                <a href="#" class="filter">Gin</a>
-                                <a href="#" class="filter">Rum</a>
-                                <a href="#" class="filter">Tequila</a>
-                                <a href="#" class="filter">Vodka</a>
-                                <a href="#" class="filter">Whiskey</a>
+                                <a href="#" class="filter" data-filter="gin">Gin</a>
+                                <a href="#" class="filter" data-filter="rum">Rum</a>
+                                <a href="#" class="filter" data-filter="tequila">Tequila</a>
+                                <a href="#" class="filter" data-filter="vodka">Vodka</a>
+                                <a href="#" class="filter" data-filter="whiskey">Whiskey</a>
+                                <a href="#" class="filter" data-filter="other">Other</a>
                             </div>
                     </div>
-                    <div class="dropdown">
-                        <!-- the actual button -->
+                    <div class="filter-option">
+                        <button class="filter-btn" data-filter="classics">Classics</button>
+                    </div>
+                    <!-- <div class="dropdown">
+                        
                         <button class="dropbtn">Season</button>
-                            <!-- dropdown items -->
+                            
                             <div class="dropdown-content">
                                 <a href="#" class="filter">Spring</a>
                                 <a href="#" class="filter">Summer</a>
                                 <a href="#" class="filter">Autumn</a>
                                 <a href="#" class="filter">Winter</a>
                             </div>
-                    </div>
+                    </div> -->
                 </aside>
                 <!-- the actual recipes take up the other 3 columns -->
                 <section class="recipes-container">
-                    <a href="./submit-recipe.html"  class="recipe">
+                    <a href="./submit-recipe.html"  class="recipe" data-spirit="none" data-classic="false">
                         <section>
                             <!-- image, name and short description -->
                             <img src="./images/submit-img.jpeg" alt="Submit Your Own Recipe" class="recipe-image">
@@ -99,7 +106,8 @@
                         </section>
                     </a>
                     <!-- each recipe is a section surrounded by a link to the individual recipe page -->
-                    <a href="./old-fashioned.html"  class="recipe">
+                    <!-- filterable attributes defined here too -->
+                    <a href="./old-fashioned.html"  class="recipe" data-spirit="whiskey" data-classic="true">
                         <section>
                             <!-- image, name and short description -->
                             <img src="./images/oldfashioned.jpeg" alt="Old Fashioned" class="recipe-image">
@@ -110,7 +118,7 @@
                             </p>
                         </section>
                     </a>
-                    <a href="./daiquiri.html"  class="recipe">
+                    <a href="./daiquiri.html"  class="recipe" data-spirit="rum" data-classic="true">
                         <section>
                             <img src="./images/daiquiri.jpeg" alt="Daiquiri" class="recipe-image">
                             <h4>Daiquiri</h4>
@@ -120,7 +128,7 @@
                             </p>
                         </section>
                     </a>
-                    <a href="./espresso-martini.html"  class="recipe">
+                    <a href="./espresso-martini.html"  class="recipe" data-spirit="vodka" data-classic="false">
                         <section>
                             <img src="./images/espresso-martini.jpeg" alt="Espresso Martini" class="recipe-image">
                             <h4>Espresso Martini</h4>
@@ -130,7 +138,7 @@
                             </p>
                         </section>
                     </a>
-                    <a href="./bees-knees.html"  class="recipe">
+                    <a href="./bees-knees.html"  class="recipe" data-spirit="gin" data-classic="false">
                         <section>
                             <img src="./images/bees-knees.jpeg" alt="Bee's Knees" class="recipe-image">
                             <h4>Bee's Knees</h4>
@@ -140,7 +148,7 @@
                             </p>
                         </section>
                     </a>
-                    <a href="./paper-plane.html"  class="recipe">
+                    <a href="./paper-plane.html"  class="recipe" data-spirit="whiskey" data-classic="false">
                         <section>
                             <img src="./images/paper-plane.jpeg" alt="Paper Plane" class="recipe-image">
                             <h4>Paper Plane</h4>
@@ -150,7 +158,7 @@
                             </p>
                         </section>
                     </a>
-                    <a href="./margarita.html"  class="recipe">
+                    <a href="./margarita.html"  class="recipe" data-spirit="tequila" data-classic="true">
                         <section>
                             <img src="./images/margarita.jpeg" alt="Margarita" class="recipe-image">
                             <h4>Margarita</h4>
@@ -160,7 +168,7 @@
                             </p>
                         </section>
                     </a>
-                    <a href="./mojito.html" class="recipe">
+                    <a href="./mojito.html" class="recipe" data-spirit="rum" data-classic="true">
                         <section>
                             <img src="./images/mojito.jpg" alt="Mojito" class="recipe-image">
                             <h4>Mojito</h4>
@@ -170,7 +178,7 @@
                             </p>
                         </section>
                     </a>
-                    <a href="./cosmopolitan.html" class="recipe">
+                    <a href="./cosmopolitan.html" class="recipe" data-spirit="vodka" data-classic="false">
                         <section>
                             <img src="./images/cosmopolitan.jpeg" alt="Cosmopolitan" class="recipe-image">
                             <h4>Cosmopolitan</h4>
@@ -180,7 +188,7 @@
                             </p>
                         </section>
                     </a>
-                    <a href="./negroni.html" class="recipe">
+                    <a href="./negroni.html" class="recipe" data-spirit="gin" data-classic="true">
                         <section>
                             <img src="./images/negroni.jpeg" alt="Negroni" class="recipe-image">
                             <h4>Negroni</h4>
@@ -190,7 +198,7 @@
                             </p>
                         </section>
                     </a>
-                    <a href="./moscow-mule.html" class="recipe">
+                    <a href="./moscow-mule.html" class="recipe" data-spirit="vodka" data-classic="false">
                         <section>
                             <img src="./images/moscow-mule.jpeg" alt="Moscow Mule" class="recipe-image">
                             <h4>Moscow Mule</h4>
@@ -200,7 +208,7 @@
                             </p>
                         </section>
                     </a>
-                    <a href="./martini.html" class="recipe">
+                    <a href="./martini.html" class="recipe" data-spirit="gin" data-classic="true">
                         <section>
                             <img src="./images/martini.jpeg" alt="Martini" class="recipe-image">
                             <h4>Martini</h4>
@@ -210,7 +218,7 @@
                             </p>
                         </section>
                     </a>
-                    <a href="./caipirinha.html" class="recipe">
+                    <a href="./caipirinha.html" class="recipe" data-spirit="other" data-classic="false">
                         <section>
                             <img src="./images/caipirinha.jpeg" alt="Caipirinha" class="recipe-image">
                             <h4>Caipirinha</h4>
@@ -220,7 +228,7 @@
                             </p>
                         </section>
                     </a>
-                    <a href="./pina-colada.html" class="recipe">
+                    <a href="./pina-colada.html" class="recipe" data-spirit="rum" data-classic="false">
                         <section>
                             <img src="./images/pina-colada.jpeg" alt="Pina Colada" class="recipe-image">
                             <h4>Pina Colada</h4>
@@ -229,7 +237,7 @@
                             </p>
                         </section>
                     </a>
-                    <a href="./mahattan.html" class="recipe">
+                    <a href="./mahattan.html" class="recipe" data-spirit="whiskey" data-classic="true">
                         <section>
                             <img src="./images/manhattan.jpeg" alt="Manhattan" class="recipe-image">
                             <h4>Manhattan</h4>
@@ -261,6 +269,7 @@
         </footer>
         <!-- END OF FOOTER -->
         <script src="./javascript/toggle-nav.js"></script>
+        <script src="./javascript/recipe-filters.js"></script>
     </body>
 
 </html>
