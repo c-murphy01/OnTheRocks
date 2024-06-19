@@ -259,7 +259,7 @@ Navbar
     z-index: 10;
     padding: 0.75rem 1rem;
     /* transformation transition */
-    transition: transform 0.5s ease;
+    transition: var(--transition);
 }
 
 .nav-btn.active {
@@ -859,17 +859,28 @@ Tips & Tricks Page
 /* style tiles for each tip */
 .tip-tile {
     border-radius: var(--borderRadius);
-    display: flex;
-    /* set flex direction so recipe images/text are stacked vertically */
-    flex-direction: column;
-    /* align items horizontally */
-    align-items: center;
+    display: block;
     box-shadow: var(--shadow);
-    /* ensure tip boxes are the same size */
-    height: 100%;
     padding: 1.5rem;
     /* background color for readability */
     background: var(--grey-100);
+    /* position: relative; */
+    overflow: hidden;
+}
+
+/* set tip header container to center the headings */
+.tip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* change heading colour and center horizontally */
+.tip-header h3 {
+    margin: 0;
+    color: var(--primary-500);
+    text-align: center;
+    flex: 1;
 }
 
 /* change heading colors */
@@ -893,6 +904,36 @@ Tips & Tricks Page
     font-size: 1rem;
     letter-spacing: var(--letterSpacing);
     text-align: justify;
+}
+
+/* stle button to expand/collapse tips */
+.accordion-btn {
+    background-color: var(--primary-400);
+    /* negative margin above to move up in line with heading */
+    margin-top: -4rem;
+    /* align at the end of the flex direction (right) */
+    align-self: flex-end;
+    /* transition for button rotation */
+    transition: var(--transition);
+}
+
+.accordion-btn.rotate {
+    transform: rotate(180deg);
+}
+
+.tip-content {
+    margin-top: 0rem;
+    /* hide content until expand button is pressed */
+    /* max-height change for slide transition */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+/* set large value for smooth expansion */
+.tip-content.expanded {
+    margin-top: 1.5rem;
+    max-height: 1000px;
 }
 
 /*
