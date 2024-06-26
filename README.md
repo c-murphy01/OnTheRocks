@@ -31,4 +31,6 @@ To run the website on your local machine:
 - **Normalize.css**: A small CSS file found [here](github.com/necolas/normalize.css). This provides consistency across browsers
 - **FontAwesome**: This is used to add icons across the website.
 
+**JavaScript**: Used to add interactivity and functionality to the website 
+
 
