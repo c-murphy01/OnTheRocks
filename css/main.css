@@ -861,6 +861,7 @@ Tips & Tricks Page
     border-radius: var(--borderRadius);
     display: block;
     box-shadow: var(--shadow);
+    margin: 1rem;
     padding: 1.5rem;
     /* background color for readability */
     background: var(--grey-100);
