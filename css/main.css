@@ -690,6 +690,7 @@ Single Recipe Page
 ===============
 */
 
+/* override default button styling for back button */
 .back-btn {
     margin-bottom: 1.5rem;
     background: none;
@@ -701,6 +702,7 @@ Single Recipe Page
     display: inline-block;
 }
 
+/* change colour on hover */
 .back-btn:hover {
     color: var(--primary-400);
 }
@@ -918,6 +920,7 @@ Tips & Tricks Page
     transition: var(--transition);
 }
 
+/* rotate button on click so down arrow when collapsed becomes up arrow when expanded */
 .accordion-btn.rotate {
     transform: rotate(180deg);
 }
@@ -1037,6 +1040,7 @@ Submit Recipe Page
     margin-top: 0.5rem;
 }
 
+/* space the elemnts in ingredient row evenly */
 .ingredient-row {
     display: flex;
     justify-content: space-between;
@@ -1069,6 +1073,7 @@ Tables
 ===============
 */
 
+/* style tables for form responses */
 .table {
     width: 100%;
     /* remove borders between header sections */

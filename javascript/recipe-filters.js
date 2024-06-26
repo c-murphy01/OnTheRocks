@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function() {
             // prevent default handling of a click event which is to redirect, keep user on the same page
             event.preventDefault();
             // if filter has class 'filter-btn', set the value to 'special', otherwise set to 'spirit'
+            // since we only have one dropdown, which filters by spirit this works
+            // need to revidse if more filters are added
             const filterType = this.classList.contains('filter-btn') ? 'special' : 'spirit';
             // set variable for the data-filter attribute
             const filterValue = this.getAttribute('data-filter');

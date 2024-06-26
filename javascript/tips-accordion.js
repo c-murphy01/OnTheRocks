@@ -8,27 +8,19 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function() {
             const tipContent = this.closest('.tip-tile').querySelector('.tip-content');
             
-            // if the tip content is hidden, show it
+            // if the tip content is being shown, remove classes for expand and rotate 
             if (tipContent.classList.contains('expanded')) {
+                // this will collapse the content
                 tipContent.classList.remove('expanded');
+                // this will reverse the rotation
                 this.classList.remove('rotate');
-                // this.innerHTML = '<i class="fa-solid fa-arrow-down-long"></i>';
+            // if the content is shown, do the opposite
             } else {
+                // expand content
                 tipContent.classList.add('expanded');
+                // rotate button
                 this.classList.add('rotate')
-                // this.innerHTML = '<i class="fa-solid fa-arrow-up-long"></i>';
             }
-
-            // // Toggle the expanded class to show or hide the content
-            // if (tipContent.classList.contains('expanded')) {
-            //     tipContent.classList.remove('expanded');
-            //     this.classList.remove('rotate');
-            //     tipContent.style.maxHeight = '0';
-            // } else {
-            //     tipContent.classList.add('expanded');
-            //     this.classList.add('rotate');
-            //     tipContent.style.maxHeight = tipContent.scrollHeight + 'px';
-            // }
         });
     });
 });
