@@ -25,12 +25,12 @@ To run the website on your local machine:
 
 ## Technologies Used
 
-**HTML5**: Used for the basic structure of the website
+**HTML5**: Used for the basic structure of the website.
 
 **CSS**: Used to add styling to the website. Two external CSS files were used. They are:
-- **Normalize.css**: A small CSS file found [here](github.com/necolas/normalize.css). This provides consistency across browsers
+- **Normalize.css**: A small CSS file found [here](github.com/necolas/normalize.css). This provides consistency across browsers.
 - **FontAwesome**: This is used to add icons across the website.
 
-**JavaScript**: Used to add interactivity and functionality to the website 
+**JavaScript**: Used to add interactivity and functionality to the website .
 
 
