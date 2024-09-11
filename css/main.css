@@ -937,7 +937,7 @@ Tips & Tricks Page
 /* set large value for smooth expansion */
 .tip-content.expanded {
     margin-top: 1.5rem;
-    max-height: 1000px;
+    max-height: 1200px;
 }
 
 /*
