@@ -3,7 +3,7 @@
 
 ### Author
 
-- Colm Murphy - colm.murphy445@mail.dcu.ie
+- Colm Murphy - colm.murphy02@gmail.com
 
 ## Description
 
