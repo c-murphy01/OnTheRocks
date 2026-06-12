@@ -1,0 +1,24 @@
+{
+  "name": "ontherocks",
+  "version": "1.0.0",
+  "description": "- Colm Murphy - colm.murphy445@mail.dcu.ie",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c-murphy01/OnTheRocks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/c-murphy01/OnTheRocks/issues"
+  },
+  "homepage": "https://github.com/c-murphy01/OnTheRocks#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
